@@ -45,7 +45,7 @@ class App extends Component {
 
 
       displayedCharArray = (
-        <div className='charComponent'>
+        <div>
 
           {/* Returns multiple CharComponents, depending on the number of characters in charArray.
               These components are elements of an array */}
