@@ -10,6 +10,7 @@ class App extends Component {
     stringToRead: '',
     stringLength: 0,
     // id: Math.random() * 100
+    charArray: []
   };
 
   // Read the length of a string
@@ -22,10 +23,22 @@ class App extends Component {
 
   readLength = (ourString) => { 
     const ourStringLength = ourString.length;
+
+    let charArray = [];
+
+    if (this.state.stringLength > 0) { 
+      for (let i=0; i<ourStringLength; i++) { 
+        charArray.push(
+          {id: Math.random() * 100, character: ourStringLength[i]}
+        )
+      }
+    }
+
+
     this.setState({
       stringLength: ourStringLength,
-      stringToRead: ourString
-      
+      stringToRead: ourString,
+      charArray: charArray
     });
     // console.log(ourString)
 
@@ -35,21 +48,37 @@ class App extends Component {
 
     let ourString = this.state.stringToRead;
     console.log(ourString[0]);
-    let charArrayItem = null;
+    // let charArrayItem = null;
     let charArray = [];
 
 
     if (this.state.stringLength > 0) { 
-      for (let i=0; i<this.state.stringLength; i++) { 
-        charArrayItem = (
-          <div>
-            <CharComponent 
-              // key={}
-              character={ourString[i]}/>
-          </div>
-        );
-        charArray.push(charArrayItem);
-      }
+
+
+
+      // for (let i=0; i<this.state.stringLength; i++) { 
+      //   charArrayItem = (
+      //     <div>
+      //       <CharComponent 
+      //         // key={}
+      //         character={ourString[i]}/>
+      //     </div>
+      //   );
+      //   charArray.push(charArrayItem);
+      // }
+
+      charArray = (
+        <div>
+          {this.state.charArray.map((character, index) => { 
+            return <CharComponent 
+              character={character[index]} />
+          })}
+        </div>
+      )
+
+
+
+
     }
 
 
