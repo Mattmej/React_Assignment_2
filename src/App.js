@@ -21,7 +21,7 @@ class App extends Component {
   // }
 
 
-  readLength = (ourString) => { 
+  readLength = (ourString, id) => { 
     const ourStringLength = ourString.length;
 
     let charArray = [];
@@ -33,6 +33,42 @@ class App extends Component {
         )
       }
     }
+
+
+
+
+
+
+    if (this.state.stringLength > 0) { 
+
+
+
+      // for (let i=0; i<this.state.stringLength; i++) { 
+      //   charArrayItem = (
+      //     <div>
+      //       <CharComponent 
+      //         // key={}
+      //         character={ourString[i]}/>
+      //     </div>
+      //   );
+      //   charArray.push(charArrayItem);
+      // }
+
+      const charIndex = this.state.charArray.findIndex(char => { 
+        return char.id === id;
+      })
+
+      const character = { 
+        ...this.state.charArray[charIndex]
+      }
+
+
+
+
+
+
+
+    
 
 
     this.setState({
@@ -52,25 +88,13 @@ class App extends Component {
     let charArray = [];
 
 
-    if (this.state.stringLength > 0) { 
-
-
-
-      // for (let i=0; i<this.state.stringLength; i++) { 
-      //   charArrayItem = (
-      //     <div>
-      //       <CharComponent 
-      //         // key={}
-      //         character={ourString[i]}/>
-      //     </div>
-      //   );
-      //   charArray.push(charArrayItem);
-      // }
+    
 
       charArray = (
         <div>
           {this.state.charArray.map((character, index) => { 
             return <CharComponent 
+              key={}
               character={character[index]} />
           })}
         </div>
