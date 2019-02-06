@@ -36,20 +36,31 @@ class App extends Component {
     let ourString = this.state.stringToRead;
     console.log(ourString[0]);
     let charArrayItem = null;
-    let charArray = [];
+    let charArray = ourString.split('');
+    let displayedCharArray = [];
 
 
     if (this.state.stringLength > 0) { 
-      for (let i=0; i<this.state.stringLength; i++) { 
-        charArrayItem = (
-          <div>
-            <CharComponent 
-              // key={}
-              character={ourString[i]}/>
-          </div>
-        );
-        charArray.push(charArrayItem);
-      }
+      // for (let i=0; i<this.state.stringLength; i++) { 
+      //   charArrayItem = (
+      //     <div>
+      //       <CharComponent 
+      //         // key={}
+      //         character={ourString[i]}/>
+      //     </div>
+      //   );
+      //   displayedCharArray.push(charArrayItem);
+      // }
+
+      displayedCharArray = (
+        <div>
+          {charArray.map((char, index) => {
+            return <CharComponent
+            key={Math.random() * 100} 
+            character={char}/>
+          })}
+        </div>
+      );
     }
 
 
@@ -65,7 +76,7 @@ class App extends Component {
 
         <ValidationComponent stringLength={this.state.stringLength} />
 
-        {charArray}
+        {displayedCharArray}
 
 
 
