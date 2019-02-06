@@ -25,40 +25,44 @@ class App extends Component {
   }
 
   deleteChar = (charIndex) => {
+
+    // Copy of stringToRead state
     const ourString = this.state.stringToRead;
+
+    // Creating an array from the string's characters
     const charArray = ourString.split('');
 
+    // Removes a character from the charArray at the index specified by "charIndex"
     charArray.splice(charIndex, 1);
     
+    // Creates a new string by joining all the characters in charArray
     const newString = charArray.join('');
     const newStringLength = newString.length;
 
+    // Sets the state after the character deletion.
     this.setState({
       stringToRead: newString,
       stringLength: newStringLength
     });
 
-    // document.getElementsByClassName('lengthReader').value = newString;
   }
 
   render() {
 
+    // Copies of state properties.
     let ourString = this.state.stringToRead;
     let ourStringLength = this.state.stringLength;
-    console.log(ourString[0]);
+
     let charArray = ourString.split('');
 
     // Will hold the CharComponents
     let displayedCharArray = [];
 
-
     // If the string length is greater than 0
     if (this.state.stringLength > 0) { 
 
-
       displayedCharArray = (
         <div>
-
           {/* Returns multiple CharComponents, depending on the number of characters in charArray.
               These components are elements of an array */}
           {charArray.map((char, index) => {
@@ -69,13 +73,7 @@ class App extends Component {
           })}
         </div>
       );
-
-      console.log(displayedCharArray);
     }
-
-
-
-
 
 
     return (
@@ -89,10 +87,7 @@ class App extends Component {
 
         {displayedCharArray}
 
-
-
       </div>
-     
     );
   }
 }
