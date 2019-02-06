@@ -36,7 +36,9 @@ class App extends Component {
     this.setState({
       stringToRead: newString,
       stringLength: newStringLength
-    })
+    });
+
+    // document.getElementsByClassName('lengthReader').value = newString;
   }
 
   render() {
@@ -79,7 +81,8 @@ class App extends Component {
       <div>
         <LengthReader 
           changed={(event) => this.readLength(event.target.value)} 
-          length={this.state.stringLength} />
+          length={this.state.stringLength}
+          text={ourString} />
 
         <ValidationComponent stringLength={this.state.stringLength} />
 
