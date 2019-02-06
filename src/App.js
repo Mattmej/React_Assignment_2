@@ -40,20 +40,15 @@ class App extends Component {
     let displayedCharArray = [];
 
 
+    // If the string length is greater than 0
     if (this.state.stringLength > 0) { 
-      // for (let i=0; i<this.state.stringLength; i++) { 
-      //   charArrayItem = (
-      //     <div>
-      //       <CharComponent 
-      //         // key={}
-      //         character={ourString[i]}/>
-      //     </div>
-      //   );
-      //   displayedCharArray.push(charArrayItem);
-      // }
+
 
       displayedCharArray = (
-        <div>
+        <div className='charComponent'>
+
+          {/* Returns multiple CharComponents, depending on the number of characters in charArray.
+              These components are elements of an array */}
           {charArray.map((char, index) => {
             return <CharComponent
             key={Math.random() * 100} 
@@ -61,6 +56,8 @@ class App extends Component {
           })}
         </div>
       );
+
+      console.log(displayedCharArray);
     }
 
 
