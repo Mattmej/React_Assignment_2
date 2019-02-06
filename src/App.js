@@ -44,6 +44,7 @@ class App extends Component {
   render() {
 
     let ourString = this.state.stringToRead;
+    let ourStringLength = this.state.stringLength;
     console.log(ourString[0]);
     let charArray = ourString.split('');
 
@@ -81,10 +82,10 @@ class App extends Component {
       <div>
         <LengthReader 
           changed={(event) => this.readLength(event.target.value)} 
-          length={this.state.stringLength}
+          length={ourStringLength}
           text={ourString} />
 
-        <ValidationComponent stringLength={this.state.stringLength} />
+        <ValidationComponent stringLength={ourStringLength} />
 
         {displayedCharArray}
 
