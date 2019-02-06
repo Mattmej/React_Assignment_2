@@ -9,25 +9,18 @@ class App extends Component {
   state = { 
     stringToRead: '',
     stringLength: 0,
-    // id: Math.random() * 100
   };
 
+
   // Read the length of a string
-  // readLength = (stringToRead) => { 
-  //   const stringLength = stringToRead.length;
-
-  //   return stringLength;
-  // }
-
-
   readLength = (ourString) => { 
     const ourStringLength = ourString.length;
+
+    // Setting state based on the read length
     this.setState({
       stringLength: ourStringLength,
       stringToRead: ourString
-      
     });
-    // console.log(ourString)
 
   }
 
@@ -35,8 +28,9 @@ class App extends Component {
 
     let ourString = this.state.stringToRead;
     console.log(ourString[0]);
-    let charArrayItem = null;
     let charArray = ourString.split('');
+
+    // Will hold the CharComponents
     let displayedCharArray = [];
 
 
