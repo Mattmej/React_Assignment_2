@@ -24,6 +24,21 @@ class App extends Component {
 
   }
 
+  deleteChar = (charIndex) => {
+    const ourString = this.state.stringToRead;
+    const charArray = ourString.split('');
+
+    charArray.splice(charIndex, 1);
+    
+    const newString = charArray.join('');
+    const newStringLength = newString.length;
+
+    this.setState({
+      stringToRead: newString,
+      stringLength: newStringLength
+    })
+  }
+
   render() {
 
     let ourString = this.state.stringToRead;
@@ -45,6 +60,7 @@ class App extends Component {
               These components are elements of an array */}
           {charArray.map((char, index) => {
             return <CharComponent
+            click={() => this.deleteChar(index)}
             key={Math.random() * 100} 
             character={char}/>
           })}
